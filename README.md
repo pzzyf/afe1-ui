@@ -3,6 +3,7 @@
 pnpm init  
 
 ### package.json
+
 "private": true
 
 ## packages -> packa &nbsp;&nbsp;&nbsp; packages -> packb
@@ -17,4 +18,4 @@ pnpm i pack-a -w
 ### package.json
 
 "pack-a": "workspace: *"  
-"pack-b": "workspace: *"  
+"pack-b": "workspace:*"  

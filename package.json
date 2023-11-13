@@ -13,5 +13,8 @@
   "dependencies": {
     "pack-a": "workspace:*",
     "pack-b": "workspace:*"
+  },
+  "devDependencies": {
+    "vue": "^3.3.8"
   }
 }
