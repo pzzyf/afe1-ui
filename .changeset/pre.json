@@ -1,0 +1,10 @@
+{
+  "mode": "exit",
+  "tag": "beta",
+  "initialVersions": {
+    "monorepo-demo": "1.0.0"
+  },
+  "changesets": [
+    "tender-carpets-divide"
+  ]
+}
