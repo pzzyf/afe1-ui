@@ -1,24 +1,13 @@
 {
   "private": true,
-  "name": "monorepo-demo",
-  "version": "1.0.1-beta.0",
+  "name": "afe1-ui",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pnpm --filter=@qftjs/* run build",
-    "clear": "rimraf 'packages/*/{lib,node_modules}' && rimraf node_modules",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "pnpm build && pnpm release:only",
-    "release:only": "changeset publish --registry=https://registry.npmjs.com/"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@qftjs/monorepo1": "workspace:*",
-    "@qftjs/monorepo2": "workspace:*"
-  }
+  "license": "ISC"
 }
