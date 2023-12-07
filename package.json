@@ -5,9 +5,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vue-tsc && vite build",
+    "build:component": "node ./scripts/build.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "afe1",
+  "license": "ISC",
+  "dependencies": {
+    "@afe1-ui/components": "workspace:*",
+    "@afe1-ui/theme-chalk": "workspace:*",
+    "@afe1-ui/utils": "workspace:*",
+    "@vitejs/plugin-vue": "^4.5.1",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "fs-extra": "^11.2.0",
+    "vue": "^3.3.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
 }
