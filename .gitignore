@@ -1,6 +1,7 @@
 # Package Manager
 node_modules
 dist
+build
 
 # Windows 系统生成的文件
 Thumbs.db       
