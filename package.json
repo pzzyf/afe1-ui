@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "afe1-ui",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,12 +15,12 @@
     "@afe1-ui/components": "workspace:*",
     "@afe1-ui/theme-chalk": "workspace:*",
     "@afe1-ui/utils": "workspace:*",
-    "@vitejs/plugin-vue": "^4.5.1",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "fs-extra": "^11.2.0",
     "vue": "^3.3.10"
   },
   "devDependencies": {
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "@vitejs/plugin-vue": "^4.5.1",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "fs-extra": "^11.2.0"
   }
 }
