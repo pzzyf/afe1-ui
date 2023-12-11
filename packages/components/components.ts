@@ -1,3 +1,3 @@
-import Button from "./button/src/button.vue"
+import Button from "./button"
 
 export const components = [Button]

@@ -1,8 +1,11 @@
 <template>
-  <button class="afe1">afe1</button>
+  <div>
+    <a-button>12345</a-button>
+  </div>
 </template>
 
 <script setup lang="ts">
+
 </script>
 
 <style scoped></style>
