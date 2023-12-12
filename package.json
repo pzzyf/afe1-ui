@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "pnpm -C play dev",
     "build": "vue-tsc && vite build",
     "build:component": "node ./scripts/build.js"
   },
@@ -18,9 +19,9 @@
     "vue": "^3.3.10"
   },
   "devDependencies": {
-    "typescript": "^5.3.2",
     "@vitejs/plugin-vue": "^4.5.1",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "typescript": "^5.3.3"
   }
 }

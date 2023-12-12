@@ -1,4 +1,7 @@
-import Button from './src/button.vue';
+import { withInstall } from "@afe1-ui/utils";
+import Button from "./src/button.vue";
 
-// 导出button组件
-export default Button;
+export const AButton = withInstall(Button);
+export type ButtonInstance = InstanceType<typeof Button>;
+
+export default AButton;

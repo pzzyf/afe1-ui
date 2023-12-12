@@ -1,3 +1,2 @@
-import Button from "./button"
-
-export const components = [Button]
+export * from "./button";
+export { AButton } from "./button";
