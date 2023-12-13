@@ -1,14 +1,10 @@
 <template>
-  <CButton>
+  <AButton>
     123
-  </CButton>
+  </AButton>
 </template>
 
 <script setup lang="ts">
-import CButton from '@afe1-ui/components/button'
-import b from '@afe1-ui/theme-chalk';
-console.log(b);
-
 </script>
 
 <style scoped></style>

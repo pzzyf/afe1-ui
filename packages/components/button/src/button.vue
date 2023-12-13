@@ -3,6 +3,11 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'AButton',
+})
 </script>
+
+
 
 <style scoped></style>
