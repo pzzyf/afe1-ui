@@ -1,15 +1,18 @@
 {
-    "name": "afe1-ui",
-    "version": "1.0.3",
-    "description": "afe1组件库",
-    "main": "afe1-ui.umd.js",
-    "module":"afe1-ui.mjs",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/pzzyf/monorepo-demo.git"
-    },
-    "keywords": ["vue3", "组件库", "UI"],
-    "author": "afe1",
-    "license": "ISC"
+  "name": "afe1-ui",
+  "version": "1.0.3",
+  "description": "afe1组件库",
+  "keywords": [
+    "vue3",
+    "组件库",
+    "UI"
+  ],
+  "license": "ISC",
+  "author": "afe1",
+  "main": "afe1-ui.umd.js",
+  "module": "afe1-ui.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzzyf/monorepo-demo.git"
   }
-  
+}

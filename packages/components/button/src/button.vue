@@ -4,10 +4,8 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'AButton',
-})
+  name: "AButton",
+});
 </script>
-
-
 
 <style scoped></style>

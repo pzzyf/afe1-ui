@@ -2,9 +2,9 @@
   "name": "@afe1-ui/components",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
-  "scripts": {},
   "keywords": [],
+  "license": "ISC",
   "author": "afe1",
-  "license": "ISC"
+  "main": "index.ts",
+  "scripts": {}
 }
