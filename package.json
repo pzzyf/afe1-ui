@@ -1,12 +1,11 @@
 {
   "private": true,
   "name": "afe1-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "vue-tsc && vite build",
     "build:component": "node ./scripts/build.js"
   },
   "keywords": [],

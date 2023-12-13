@@ -1,6 +1,6 @@
 {
     "name": "afe1-ui",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "afe1组件库",
     "main": "afe1-ui.umd.js",
     "module":"afe1-ui.mjs",

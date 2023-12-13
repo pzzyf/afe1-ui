@@ -1,4 +1,4 @@
-import AButton from "../components/button";
+import AButton from "@afe1-ui/components/button";
 
 // // 组件库
 const components = [AButton];

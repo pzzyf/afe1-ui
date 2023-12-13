@@ -19,7 +19,7 @@ const rollupOptions = defineConfig({
   }
 })
 // 组件库全局入口
-const compontsDir = path.resolve(__dirname, "../packages/afe1-ui")
+const compontsDir = path.resolve(__dirname, "../packages/components")
 // 输出目录
 const outputDir = path.resolve(__dirname, "../build")
 // 生成 package.json
