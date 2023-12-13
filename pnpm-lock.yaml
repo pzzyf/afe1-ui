@@ -11,6 +11,9 @@ importers:
       '@afe1-ui/components':
         specifier: workspace:*
         version: link:packages/components
+      '@afe1-ui/hooks':
+        specifier: workspace:*
+        version: link:packages/hooks
       '@afe1-ui/theme-chalk':
         specifier: workspace:*
         version: link:packages/theme-chalk
@@ -19,7 +22,7 @@ importers:
         version: link:packages/utils
     devDependencies:
       '@afe1-ui/eslint-config':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:internal/eslint-config
       '@types/node':
         specifier: ^20.10.4
@@ -45,6 +48,9 @@ importers:
       prettier:
         specifier: ^2.7.1
         version: 2.8.8
+      sass:
+        specifier: ^1.69.5
+        version: 1.69.5
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -112,6 +118,12 @@ importers:
 
   packages/components: {}
 
+  packages/hooks:
+    dependencies:
+      vue:
+        specifier: ^3.2.0
+        version: 3.3.10(typescript@5.3.3)
+
   packages/theme-chalk: {}
 
   packages/utils: {}
@@ -130,7 +142,7 @@ importers:
         version: 5.3.2
       vite:
         specifier: ^5.0.0
-        version: 5.0.6(@types/node@20.10.4)
+        version: 5.0.6(@types/node@20.10.4)(sass@1.69.5)
       vue-tsc:
         specifier: ^1.8.22
         version: 1.8.25(typescript@5.3.2)
@@ -1014,7 +1026,7 @@ packages:
       '@babel/core': 7.23.5
       '@babel/plugin-transform-typescript': 7.23.5(@babel/core@7.23.5)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.23.5)
-      vite: 5.0.6(@types/node@20.10.4)
+      vite: 5.0.6(@types/node@20.10.4)(sass@1.69.5)
       vue: 3.3.10(typescript@5.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1027,7 +1039,7 @@ packages:
       vite: ^4.0.0 || ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.0.6(@types/node@20.10.4)
+      vite: 5.0.6(@types/node@20.10.4)(sass@1.69.5)
       vue: 3.3.10(typescript@5.3.3)
     dev: true
 
@@ -2262,6 +2274,10 @@ packages:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
     engines: {node: '>= 4'}
 
+  /immutable@4.3.4:
+    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
+    dev: true
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -3067,6 +3083,16 @@ packages:
       regexp-tree: 0.1.27
     dev: false
 
+  /sass@1.69.5:
+    resolution: {integrity: sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+    dev: true
+
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
@@ -3411,7 +3437,7 @@ packages:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  /vite@5.0.6(@types/node@20.10.4):
+  /vite@5.0.6(@types/node@20.10.4)(sass@1.69.5):
     resolution: {integrity: sha512-MD3joyAEBtV7QZPl2JVVUai6zHms3YOmLR+BpMzLlX2Yzjfcc4gTgNi09d/Rua3F4EtC8zdwPU8eQYyib4vVMQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3443,6 +3469,7 @@ packages:
       esbuild: 0.19.8
       postcss: 8.4.32
       rollup: 4.6.1
+      sass: 1.69.5
     optionalDependencies:
       fsevents: 2.3.3
     dev: true

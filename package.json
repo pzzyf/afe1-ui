@@ -19,11 +19,12 @@
   },
   "dependencies": {
     "@afe1-ui/components": "workspace:*",
+    "@afe1-ui/hooks": "workspace:*",
     "@afe1-ui/theme-chalk": "workspace:*",
     "@afe1-ui/utils": "workspace:*"
   },
   "devDependencies": {
-    "@afe1-ui/eslint-config": "workspace:^",
+    "@afe1-ui/eslint-config": "workspace:*",
     "@types/node": "^20.10.4",
     "@vitejs/plugin-vue": "^4.5.1",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
@@ -32,6 +33,7 @@
     "fs-extra": "^11.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
+    "sass": "^1.69.5",
     "typescript": "^5.3.3",
     "unplugin-vue-define-options": "^1.4.1",
     "vue": "^3.3.10",
