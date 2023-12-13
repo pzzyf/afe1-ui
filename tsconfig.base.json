@@ -16,7 +16,7 @@
     "rootDir": ".",
     "types": [],
     "paths": {
-      "@ep/*": ["packages/*"]
+      "@afe1-ui/*": ["packages/*"]
     }
   }
 }

@@ -10,7 +10,9 @@
     "internal/**/*",
     "internal/**/*.json",
     "scripts/**/*",
-    "packages/theme-chalk/*"
+    "packages/theme-chalk/*",
+    "packages/afe1-ui/version.ts",
+    "packages/afe1-ui/package.json"
   ],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
 }
