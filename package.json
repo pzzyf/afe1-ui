@@ -7,6 +7,11 @@
   "license": "ISC",
   "author": "afe1",
   "main": "index.js",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
   "scripts": {
     "dev": "pnpm -C play dev",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
