@@ -1,0 +1,16 @@
+{
+  "name": "@afe1-ui/docs",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "gen-locale": "rimraf .vitepress/i18n && tsx .vitepress/build/crowdin-generate.ts"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.0-rc.31"
+  }
+}
