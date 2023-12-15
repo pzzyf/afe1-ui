@@ -20,7 +20,9 @@
     "typecheck": "run-p typecheck:web typecheck:play typecheck:node",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
     "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
-    "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit"
+    "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit",
+    "docs:dev": "pnpm run -C docs dev",
+    "docs:build": "pnpm run -C docs build"
   },
   "dependencies": {
     "@afe1-ui/components": "workspace:*",

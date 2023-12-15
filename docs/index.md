@@ -4,12 +4,11 @@ layout: home
 
 hero:
   name: "Afe1 Ui"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "vue3组件库"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Components Examples
+      link: /components
     - theme: alt
       text: API Examples
       link: /api-examples
