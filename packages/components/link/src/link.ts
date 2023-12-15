@@ -8,4 +8,8 @@ export const linkProps = {
     type: Boolean,
     default: true,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 } as const

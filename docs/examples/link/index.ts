@@ -1,2 +1,2 @@
-import Base from './base.vue'
+import Base from './disabled.vue'
 export default Base
