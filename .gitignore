@@ -1,7 +1,6 @@
 # Package Manager
 node_modules
 .vscode
-dist
 build
 
 # Windows 系统生成的文件
