@@ -4,4 +4,8 @@ export const linkProps = {
     values: ['primary', 'success', 'warning', 'info', 'danger', 'default'],
     default: 'default',
   },
+  underLine: {
+    type: Boolean,
+    default: true,
+  },
 } as const
