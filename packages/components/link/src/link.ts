@@ -1,3 +1,5 @@
+import type Link from './link.vue'
+
 export const linkProps = {
   type: {
     type: String,
@@ -13,3 +15,5 @@ export const linkProps = {
     default: false,
   },
 } as const
+
+export type LinkInstance = InstanceType<typeof Link>

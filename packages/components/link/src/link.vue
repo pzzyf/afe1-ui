@@ -9,6 +9,10 @@ import { computed } from 'vue'
 import { useNamespace } from '@afe1-ui/hooks'
 import { linkProps } from './link'
 
+defineOptions({
+  name: 'ALink',
+})
+
 const props = defineProps(linkProps)
 
 const ns = useNamespace('link')
