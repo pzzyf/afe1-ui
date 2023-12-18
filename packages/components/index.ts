@@ -1,8 +1,9 @@
 import AButton from '@afe1-ui/components/button'
 import ALink from '@afe1-ui/components/link'
+import AIcon from '@afe1-ui/components/icon'
 
 // // 组件库
-const components = [AButton, ALink]
+const components = [AButton, ALink, AIcon]
 // 是否已安装标识
 const INSTALLED_KEY = Symbol('INSTALLED_KEY')
 // 组件库插件
