@@ -9,7 +9,14 @@ import Base from '../../docs/examples/icon'
 <style scoped></style> -->
 
 <template>
-  <AInput></AInput>
+  <AInput>
+    <template #prepend>
+      <div>prepend</div>
+    </template>
+    <template #append>
+      <div>append</div>
+    </template>
+  </AInput>
 </template>
 
 <script setup lang="ts">
