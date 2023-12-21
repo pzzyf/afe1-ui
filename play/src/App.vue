@@ -9,7 +9,7 @@ import Base from '../../docs/examples/icon'
 <style scoped></style> -->
 
 <template>
-  <AInput type="textarea" placeholder="Please input" readonly></AInput>
+  <AInput placeholder="Please input"></AInput>
 </template>
 
 <script setup lang="ts">
