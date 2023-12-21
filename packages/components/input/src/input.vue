@@ -4,10 +4,14 @@
       <div v-if="$slots.prepend">
         <slot name="prepend" />
       </div>
-      <div style="display: flex">
-        <div>input1</div>
+      <div>
+        <span v-if="$slots.prefix">
+          <slot name="prefix" />
+        </span>
         <input type="text" />
-        <div>input3</div>
+        <span v-if="$slots.suffix">
+          <slot name="suffix" />
+        </span>
       </div>
       <div v-if="$slots.append">
         <slot name="append" />

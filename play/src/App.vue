@@ -10,12 +10,8 @@ import Base from '../../docs/examples/icon'
 
 <template>
   <AInput>
-    <template #prepend>
-      <div>prepend</div>
-    </template>
-    <template #append>
-      <div>append</div>
-    </template>
+    <template #prefix>1</template>
+    <template #suffix>2</template>
   </AInput>
 </template>
 
