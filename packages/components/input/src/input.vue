@@ -8,7 +8,14 @@
         <span v-if="$slots.prefix">
           <slot name="prefix" />
         </span>
-        <input type="text" />
+
+        <input
+          type="text"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          :readonly="readonly"
+        />
+
         <span v-if="$slots.suffix">
           <slot name="suffix" />
         </span>
@@ -18,15 +25,16 @@
       </div>
     </template>
     <template v-else>
-      <div>input</div>
+      <textarea />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
 // import { ref } from 'vue'
-import { inputProp } from './input'
-const { type } = defineProps(inputProp)
+import { inputProps } from './input'
+const props = defineProps(inputProps)
+console.log(props)
 </script>
 
 <style scoped></style>

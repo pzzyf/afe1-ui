@@ -9,10 +9,7 @@ import Base from '../../docs/examples/icon'
 <style scoped></style> -->
 
 <template>
-  <AInput>
-    <template #prefix>1</template>
-    <template #suffix>2</template>
-  </AInput>
+  <AInput placeholder="Please input" readonly></AInput>
 </template>
 
 <script setup lang="ts">
