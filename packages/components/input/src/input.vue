@@ -25,7 +25,11 @@
       </div>
     </template>
     <template v-else>
-      <textarea />
+      <textarea
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :readonly="readonly"
+      />
     </template>
   </div>
 </template>
