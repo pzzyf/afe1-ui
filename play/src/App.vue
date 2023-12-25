@@ -9,17 +9,20 @@ import Base from '../../docs/examples/icon'
 <style scoped></style> -->
 
 <template>
-  <input ref="input" :value="state" type="text" />
-  <button @click="handleClk">提交</button>
+  <AInput v-model="state"></AInput>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const input = ref()
-const state = ref(666)
-const handleClk = () => {
-  console.log(input.value.value)
-}
+import { watch, ref } from 'vue'
+import AInput from '@afe1-ui/components/input'
+
+const state = ref<HTMLInputElement>()
+watch(
+  () => state.value,
+  (newVal) => {
+    console.log('state值：', newVal)
+  }
+)
 </script>
 
 <style scoped></style>

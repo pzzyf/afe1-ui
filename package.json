@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@afe1-ui/components": "workspace:*",
+    "@afe1-ui/constants": "workspace:*",
     "@afe1-ui/hooks": "workspace:*",
     "@afe1-ui/theme-chalk": "workspace:*",
     "@afe1-ui/utils": "workspace:*"

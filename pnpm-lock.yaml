@@ -11,6 +11,9 @@ importers:
       '@afe1-ui/components':
         specifier: workspace:*
         version: link:packages/components
+      '@afe1-ui/constants':
+        specifier: workspace:*
+        version: link:packages/constants
       '@afe1-ui/hooks':
         specifier: workspace:*
         version: link:packages/hooks
@@ -123,6 +126,8 @@ importers:
         version: 8.55.0
 
   packages/components: {}
+
+  packages/constants: {}
 
   packages/hooks:
     dependencies:
