@@ -21,4 +21,7 @@ export const inputProps = {
 
 export const inputEmit = {
   [UPDATE_MODEL_EVENT]: (value: string) => isString(value),
+  compositionstart: (evt: CompositionEvent) => evt instanceof CompositionEvent,
+  compositionupdate: (evt: CompositionEvent) => evt instanceof CompositionEvent,
+  compositionend: (evt: CompositionEvent) => evt instanceof CompositionEvent,
 }

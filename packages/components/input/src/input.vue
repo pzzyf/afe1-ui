@@ -17,6 +17,9 @@
           :disabled="disabled"
           :readonly="readonly"
           @input="handleInput"
+          @compositionstart="handleCompositionStart"
+          @compositionupdate="handleCompositionUpdate"
+          @compositionend="handleCompositionEnd"
         />
 
         <span v-if="$slots.suffix" :class="nsInput.e('suffix')">
@@ -39,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, shallowRef } from 'vue'
+import { computed, nextTick, onMounted, ref, shallowRef } from 'vue'
 import { useNamespace } from '@afe1-ui/hooks'
 import { UPDATE_MODEL_EVENT } from '@afe1-ui/constants'
 import { inputEmit, inputProps } from './input'
@@ -74,8 +77,28 @@ const setNativeInputValue = () => {
   input.value = nativeInputValue.value
 }
 
+const isComposing = ref(false)
+
+const handleCompositionStart = (event: CompositionEvent) => {
+  emit('compositionstart', event)
+  isComposing.value = true
+}
+
+const handleCompositionUpdate = (event: CompositionEvent) => {
+  emit('compositionupdate', event)
+}
+
+const handleCompositionEnd = (event: CompositionEvent) => {
+  emit('compositionend', event)
+  if (isComposing.value) {
+    isComposing.value = false
+    handleInput(event)
+  }
+}
+
 const handleInput = async (event: Event) => {
   const { value } = event.target as TargetElement
+  if (isComposing.value) return
   emit(UPDATE_MODEL_EVENT, value)
   await nextTick()
   // 等待 DOM 更新后设置 input 表单的值
