@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Afe1Ui from '@afe1-ui/components'
+import Afe1Ui from '../../packages/afe1-ui'
 import '@afe1-ui/theme-chalk/src/index.scss'
 import App from './App.vue'
 
