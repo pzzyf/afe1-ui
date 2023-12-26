@@ -19,7 +19,7 @@ const rollupOptions = defineConfig({
   },
 })
 // 组件库全局入口
-const compontsDir = path.resolve(__dirname, '../packages/components')
+const compontsDir = path.resolve(__dirname, '../packages/afe1-ui')
 // 输出目录
 const outputDir = path.resolve(__dirname, '../build')
 // 生成 package.json
@@ -32,7 +32,7 @@ const createPackageJson = (name) => {
     "module":"${name ? 'index.mjs' : 'afe1-ui.mjs'}",
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/pzzyf/monorepo-demo.git"
+      "url": "git+https://github.com/pzzyf/afe1-ui.git"
     },
     "keywords": ["vue3", "组件库", "UI"],
     "author": "afe1",
