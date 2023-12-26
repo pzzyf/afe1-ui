@@ -1,9 +1,20 @@
+# Editor directories and files
+.idea
+
 # Package Manager
 node_modules
-.vscode
-build
+.pnpm-debug.log*
 
-# Windows 系统生成的文件
-Thumbs.db
-# macOS 系统生成的文件
+# System
 .DS_Store
+
+# Bundle
+dist
+coverage
+
+# local env files
+*.local
+.eslintcache
+cypress/screenshots/*
+cypress/videos/*
+tmp

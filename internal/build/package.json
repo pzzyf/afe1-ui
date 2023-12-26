@@ -1,0 +1,22 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "fast-glob": "^3.3.2",
+    "rollup": "^4.9.1",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "unplugin-vue-macros": "^2.7.6"
+  }
+}
