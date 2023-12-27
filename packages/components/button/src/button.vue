@@ -1,11 +1,9 @@
 <template>
-  <button class="afe1">afe1</button>
+  <div>
+    <button>1</button>
+  </div>
 </template>
 
-<script setup lang="ts">
-defineOptions({
-  name: 'AButton',
-})
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

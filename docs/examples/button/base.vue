@@ -1,9 +1,11 @@
 <template>
-  <Base />
+  <div>1</div>
 </template>
 
 <script setup lang="ts">
-import Base from '../../docs/examples/button'
+defineExpose({
+  name: 'Base',
+})
 </script>
 
 <style scoped></style>
