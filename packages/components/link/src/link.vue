@@ -4,8 +4,13 @@
     :href="disabled || !href ? undefined : href"
     @click="handleClick"
   >
+    <!-- 给了两个插槽一个放前icon一个放后icon，不同的写法 -->
     <a-icon v-if="icon"><component :is="icon" /></a-icon>
-    <slot />
+    <span v-if="$slots.default" :class="ns.e('inner')">
+      <slot />
+    </span>
+
+    <slot v-if="$slots.icon" name="icon" />
   </a>
 </template>
 
@@ -23,6 +28,7 @@ const props = defineProps(linkProps)
 const emit = defineEmits(linkEmit)
 
 const ns = useNamespace('link')
+
 const linkKls = computed(() => [
   ns.b(),
   ns.m(props.type),

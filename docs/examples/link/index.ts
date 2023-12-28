@@ -1,2 +1,2 @@
-import Base from './base.vue'
+import Base from './with-icon.vue'
 export default Base
