@@ -20,4 +20,8 @@ export const linkProps = {
   href: String,
 } as const
 
+export const linkEmit = {
+  click: (evt: MouseEvent) => evt instanceof MouseEvent,
+}
+
 export type LinkInstance = InstanceType<typeof Link>
