@@ -1,11 +1,20 @@
 import type Link from './link.vue'
+import type { PropType } from 'vue'
+
+export const linkType = [
+  '',
+  'default',
+  'primary',
+  'success',
+  'warning',
+  'info',
+  'danger',
+] as const
+
+export type LinkType = (typeof linkType)[number]
 
 export const linkProps = {
-  type: {
-    type: String,
-    values: ['primary', 'success', 'warning', 'info', 'danger', 'default'],
-    default: 'default',
-  },
+  type: String as PropType<LinkType>,
   underLine: {
     type: Boolean,
     default: true,
