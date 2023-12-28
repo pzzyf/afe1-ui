@@ -18,6 +18,7 @@ export const linkProps = {
   underline: Boolean,
   disabled: Boolean,
   href: String,
+  icon: String || Object || Function,
 } as const
 
 export const linkEmit = {

@@ -4,6 +4,7 @@
     :href="disabled || !href ? undefined : href"
     @click="handleClick"
   >
+    <a-icon v-if="icon"><component :is="icon" /></a-icon>
     <slot />
   </a>
 </template>
@@ -11,6 +12,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useNamespace } from '@afe1-ui/hooks'
+import AIcon from '@afe1-ui/components/icon'
 import { linkEmit, linkProps } from './link'
 
 defineOptions({

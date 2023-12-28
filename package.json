@@ -29,7 +29,8 @@
     "@afe1-ui/constants": "workspace:*",
     "@afe1-ui/hooks": "workspace:*",
     "@afe1-ui/theme-chalk": "workspace:*",
-    "@afe1-ui/utils": "workspace:*"
+    "@afe1-ui/utils": "workspace:*",
+    "@element-plus/icons-vue": "^2.3.1"
   },
   "devDependencies": {
     "@afe1-ui/eslint-config": "workspace:*",
