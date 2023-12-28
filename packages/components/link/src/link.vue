@@ -1,5 +1,5 @@
 <template>
-  <a :class="linkCls">
+  <a :class="linkKls" :href="disabled || !href ? undefined : href">
     <slot />
   </a>
 </template>
@@ -16,7 +16,7 @@ defineOptions({
 const props = defineProps(linkProps)
 
 const ns = useNamespace('link')
-const linkCls = computed(() => [
+const linkKls = computed(() => [
   ns.b(),
   ns.m(props.type),
   ns.is('disabled', props.disabled),

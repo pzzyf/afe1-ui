@@ -15,14 +15,9 @@ export type LinkType = (typeof linkType)[number]
 
 export const linkProps = {
   type: String as PropType<LinkType>,
-  underline: {
-    type: Boolean,
-    default: true,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+  underline: Boolean,
+  disabled: Boolean,
+  href: String,
 } as const
 
 export type LinkInstance = InstanceType<typeof Link>

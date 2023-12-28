@@ -1,2 +1,2 @@
-import Base from './underline.vue'
+import Base from './base.vue'
 export default Base

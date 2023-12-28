@@ -1,5 +1,5 @@
 <template>
-  <a-link type="default">default</a-link>
+  <a-link href="https://afe1-ui.netlify.app/" target="_blank">default</a-link>
   <a-link type="primary">primary</a-link>
   <a-link type="success">success</a-link>
   <a-link type="warning">warning</a-link>
