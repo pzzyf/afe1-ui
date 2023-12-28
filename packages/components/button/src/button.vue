@@ -10,7 +10,7 @@ import { useNamespace } from '@afe1-ui/hooks'
 import { buttonProps } from './button'
 const props = defineProps(buttonProps)
 const ns = useNamespace('button')
-const buttonKls = computed(() => [ns.b(), ns.m(props.type)])
+const buttonKls = computed(() => [ns.b(), ns.m(props.type), ns.m(props.size)])
 </script>
 
 <style scoped></style>
