@@ -1,2 +1,2 @@
-import Base from './disabled.vue'
+import Base from './underline.vue'
 export default Base

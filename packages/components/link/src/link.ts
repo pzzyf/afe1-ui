@@ -15,7 +15,7 @@ export type LinkType = (typeof linkType)[number]
 
 export const linkProps = {
   type: String as PropType<LinkType>,
-  underLine: {
+  underline: {
     type: Boolean,
     default: true,
   },

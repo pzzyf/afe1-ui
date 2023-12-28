@@ -20,7 +20,7 @@ const linkCls = computed(() => [
   ns.b(),
   ns.m(props.type),
   ns.is('disabled', props.disabled),
-  ns.is('underline', props.underLine && !props.disabled),
+  ns.is('underline', props.underline && !props.disabled),
 ])
 </script>
 
