@@ -18,6 +18,8 @@ export const inputProps = {
     type: Boolean,
     default: false,
   },
+  minlength: [String, Number] as PropType<string | number>,
+  maxlength: [String, Number] as PropType<string | number>,
 } as const
 
 export const inputEmit = {

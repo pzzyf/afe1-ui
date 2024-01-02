@@ -12,6 +12,8 @@
         <input
           ref="input"
           :class="nsInput.e('inner')"
+          :minlength="minlength"
+          :maxlength="maxlength"
           type="text"
           :placeholder="placeholder"
           :disabled="disabled"
