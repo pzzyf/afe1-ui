@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, shallowRef, useSlots } from 'vue'
-import { NOOP } from '@vue/shared'
+// import { NOOP } from '@vue/shared'
 import { isNil } from 'lodash-unified'
 import AIcon from '@afe1-ui/components/icon'
 
@@ -134,7 +134,6 @@ const suffixVisible = computed(() => [!!slots.suffix])
 const showClear = computed(() => props.clearable && !!nativeInputValue.value)
 
 const clear = () => {
-  console.log(123)
   emit(UPDATE_MODEL_EVENT, '')
   emit('change', '')
   emit('clear')
