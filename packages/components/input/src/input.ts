@@ -14,11 +14,17 @@ export const inputProps = {
   placeholder: String,
   disabled: Boolean,
   readonly: Boolean,
-  clearable: Boolean,
+  clearable: {
+    type: Boolean,
+    default: false,
+  },
 } as const
 
 export const inputEmit = {
   [UPDATE_MODEL_EVENT]: (value: string) => isString(value),
+  input: (value: string) => isString(value),
+  change: (value: string) => isString(value),
+  clear: () => true,
   compositionstart: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionupdate: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionend: (evt: CompositionEvent) => evt instanceof CompositionEvent,

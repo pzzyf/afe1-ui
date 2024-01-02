@@ -24,7 +24,13 @@
 
         <span v-if="suffixVisible" :class="nsInput.e('suffix')">
           <span :class="nsInput.e('suffix-inner')">
-            <a-icon v-if="showClear"><circle-close /></a-icon>
+            <a-icon
+              v-if="showClear"
+              :class="[nsInput.e('icon'), nsInput.e('clear')]"
+              @click="clear"
+            >
+              <circle-close />
+            </a-icon>
           </span>
         </span>
       </div>
@@ -45,6 +51,8 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, shallowRef, useSlots } from 'vue'
+import { NOOP } from '@vue/shared'
+import { isNil } from 'lodash-unified'
 import AIcon from '@afe1-ui/components/icon'
 
 import { useNamespace } from '@afe1-ui/hooks'
@@ -73,7 +81,7 @@ const input = shallowRef<HTMLInputElement>()
 const _ref = computed(() => input.value)
 
 const nativeInputValue = computed(() =>
-  !props.modelValue ? '' : String(props.modelValue)
+  isNil(props.modelValue) ? '' : String(props.modelValue)
 )
 
 const setNativeInputValue = () => {
@@ -104,7 +112,16 @@ const handleCompositionEnd = (event: CompositionEvent) => {
 const handleInput = async (event: Event) => {
   const { value } = event.target as TargetElement
   if (isComposing.value) return
+
+  if (value === nativeInputValue.value) {
+    setNativeInputValue()
+    return
+  }
+
   emit(UPDATE_MODEL_EVENT, value)
+
+  emit('input', value)
+
   await nextTick()
   // 等待 DOM 更新后设置 input 表单的值
   setNativeInputValue()
@@ -114,7 +131,15 @@ const slots = useSlots()
 
 const suffixVisible = computed(() => [!!slots.suffix])
 
-const showClear = computed(() => [props.clearable])
+const showClear = computed(() => props.clearable && !!nativeInputValue.value)
+
+const clear = () => {
+  console.log(123)
+  emit(UPDATE_MODEL_EVENT, '')
+  emit('change', '')
+  emit('clear')
+  emit('input', '')
+}
 
 onMounted(() => {
   setNativeInputValue()
