@@ -13,10 +13,8 @@ export const inputProps = {
   },
   placeholder: String,
   disabled: Boolean,
-  readonly: {
-    type: Boolean,
-    default: false,
-  },
+  readonly: Boolean,
+  clearable: Boolean,
 } as const
 
 export const inputEmit = {

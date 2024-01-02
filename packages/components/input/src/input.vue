@@ -22,8 +22,10 @@
           @compositionend="handleCompositionEnd"
         />
 
-        <span v-if="$slots.suffix" :class="nsInput.e('suffix')">
-          <slot name="suffix" />
+        <span v-if="suffixVisible" :class="nsInput.e('suffix')">
+          <span :class="nsInput.e('suffix-inner')">
+            <a-icon v-if="showClear"><circle-close /></a-icon>
+          </span>
         </span>
       </div>
       <div v-if="$slots.append">
@@ -42,9 +44,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, shallowRef } from 'vue'
+import { computed, nextTick, onMounted, ref, shallowRef, useSlots } from 'vue'
+import AIcon from '@afe1-ui/components/icon'
+
 import { useNamespace } from '@afe1-ui/hooks'
 import { UPDATE_MODEL_EVENT } from '@afe1-ui/constants'
+import { CircleClose } from '@element-plus/icons-vue'
 import { inputEmit, inputProps } from './input'
 
 type TargetElement = HTMLInputElement | HTMLTextAreaElement
@@ -104,6 +109,12 @@ const handleInput = async (event: Event) => {
   // 等待 DOM 更新后设置 input 表单的值
   setNativeInputValue()
 }
+
+const slots = useSlots()
+
+const suffixVisible = computed(() => [!!slots.suffix])
+
+const showClear = computed(() => [props.clearable])
 
 onMounted(() => {
   setNativeInputValue()
