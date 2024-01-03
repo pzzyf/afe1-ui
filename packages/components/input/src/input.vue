@@ -1,5 +1,10 @@
 <template>
-  <div v-show="type !== 'hidden'" :class="containerKls">
+  <div
+    v-show="type !== 'hidden'"
+    :class="containerKls"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <template v-if="type !== 'textarea'">
       <div v-if="$slots.prepend">
         <slot name="prepend" />
@@ -29,6 +34,7 @@
             <a-icon
               v-if="showClear"
               :class="[nsInput.e('icon'), nsInput.e('clear')]"
+              @mousedown.prevent="NOOP"
               @click="clear"
             >
               <circle-close />
@@ -53,7 +59,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, shallowRef, useSlots } from 'vue'
-// import { NOOP } from '@vue/shared'
+import { NOOP } from '@vue/shared'
 import { isNil } from 'lodash-unified'
 import AIcon from '@afe1-ui/components/icon'
 
@@ -129,11 +135,25 @@ const handleInput = async (event: Event) => {
   setNativeInputValue()
 }
 
+const hovering = ref(false)
+
+const handleMouseEnter = (evt: MouseEvent) => {
+  hovering.value = true
+  emit('mouseenter', evt)
+}
+
+const handleMouseLeave = (evt: MouseEvent) => {
+  hovering.value = false
+  emit('mouseleave', evt)
+}
+
 const slots = useSlots()
 
 const suffixVisible = computed(() => [!!slots.suffix])
 
-const showClear = computed(() => props.clearable && !!nativeInputValue.value)
+const showClear = computed(
+  () => props.clearable && !!nativeInputValue.value && hovering.value
+)
 
 const clear = () => {
   emit(UPDATE_MODEL_EVENT, '')

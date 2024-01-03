@@ -1,5 +1,5 @@
 <template>
-  <a-input v-model="input" placeholder="Please input" maxlength="2" />
+  <a-input v-model="input" placeholder="Please input" clearable />
 </template>
 
 <script lang="ts" setup>
