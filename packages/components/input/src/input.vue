@@ -6,7 +6,7 @@
     @mouseleave="handleMouseLeave"
   >
     <template v-if="type !== 'textarea'">
-      <div v-if="$slots.prepend">
+      <div v-if="$slots.prepend" :class="nsInput.be('group', 'prepend')">
         <slot name="prepend" />
       </div>
       <div :class="wrapperKls">
@@ -17,16 +17,21 @@
         <input
           ref="input"
           :class="nsInput.e('inner')"
+          v-bind="attrs"
           :minlength="minlength"
           :maxlength="maxlength"
-          type="text"
-          :placeholder="placeholder"
           :disabled="disabled"
           :readonly="readonly"
-          @input="handleInput"
+          :autocomplete="autocomplete"
+          :tabindex="tabindex"
+          :aria-label="label"
+          :placeholder="placeholder"
+          :autofocus="autofocus"
+          type="text"
           @compositionstart="handleCompositionStart"
           @compositionupdate="handleCompositionUpdate"
           @compositionend="handleCompositionEnd"
+          @input="handleInput"
         />
 
         <span v-if="suffixVisible" :class="nsInput.e('suffix')">
@@ -58,7 +63,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, shallowRef, useSlots } from 'vue'
+import {
+  computed,
+  nextTick,
+  onMounted,
+  ref,
+  shallowRef,
+  useAttrs,
+  useSlots,
+} from 'vue'
 import { NOOP } from '@vue/shared'
 import { isNil } from 'lodash-unified'
 import AIcon from '@afe1-ui/components/icon'
@@ -74,6 +87,7 @@ defineOptions({
   name: 'AInput',
 })
 
+const attrs = useAttrs()
 const props = defineProps(inputProps)
 const emit = defineEmits(inputEmit)
 const nsInput = useNamespace('input')

@@ -20,6 +20,10 @@ export const inputProps = {
   },
   minlength: [String, Number] as PropType<string | number>,
   maxlength: [String, Number] as PropType<string | number>,
+  autocomplete: String,
+  tabindex: [String, Number] as PropType<string | number>,
+  label: String,
+  autofocus: Boolean,
 } as const
 
 export const inputEmit = {
