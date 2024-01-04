@@ -71,6 +71,7 @@ import {
   shallowRef,
   useAttrs,
   useSlots,
+  watch,
 } from 'vue'
 import { NOOP } from '@vue/shared'
 import { isNil } from 'lodash-unified'
@@ -175,6 +176,8 @@ const clear = () => {
   emit('clear')
   emit('input', '')
 }
+
+watch(nativeInputValue, () => setNativeInputValue())
 
 onMounted(() => {
   setNativeInputValue()
