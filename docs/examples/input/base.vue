@@ -4,9 +4,9 @@
     placeholder="Please input"
     clearable
     :prefix-icon="Calendar"
-  >
-    <template #prefix> 123 </template>
-  </a-input>
+    show-word-limit
+    maxlength="10"
+  />
 </template>
 
 <script lang="ts" setup>

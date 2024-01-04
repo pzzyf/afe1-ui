@@ -25,6 +25,9 @@ export const inputProps = {
   label: String,
   autofocus: Boolean,
   prefixIcon: [String, Object, Function] as PropType<string | object>,
+  suffixIcon: [String, Object, Function] as PropType<string | object>,
+  showPassword: Boolean,
+  showWordLimit: Boolean,
 } as const
 
 export const inputEmit = {

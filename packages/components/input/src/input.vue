@@ -43,6 +43,12 @@
 
         <span v-if="suffixVisible" :class="nsInput.e('suffix')">
           <span :class="nsInput.e('suffix-inner')">
+            <template v-if="!showClear">
+              <slot name="suffix" />
+              <a-icon v-if="suffixIcon" :class="nsInput.e('icon')">
+                <component :is="suffixIcon" />
+              </a-icon>
+            </template>
             <a-icon
               v-if="showClear"
               :class="[nsInput.e('icon'), nsInput.e('clear')]"
@@ -51,6 +57,18 @@
             >
               <circle-close />
             </a-icon>
+            <a-icon
+              v-if="showPwdVisible"
+              :class="[nsInput.e('icon'), nsInput.e('password')]"
+              @click="handlePasswordVisible"
+            >
+              <component :is="passwordIcon" />
+            </a-icon>
+            <span v-if="isWordLimitVisible" :class="nsInput.e('count')">
+              <span :class="nsInput.e('count-inner')">
+                {{ textLength }} / {{ maxlength }}
+              </span>
+            </span>
           </span>
         </span>
       </div>
@@ -86,7 +104,11 @@ import AIcon from '@afe1-ui/components/icon'
 
 import { useNamespace } from '@afe1-ui/hooks'
 import { UPDATE_MODEL_EVENT } from '@afe1-ui/constants'
-import { CircleClose } from '@element-plus/icons-vue'
+import {
+  CircleClose,
+  Hide as IconHide,
+  View as IconView,
+} from '@element-plus/icons-vue'
 import { inputEmit, inputProps } from './input'
 
 type TargetElement = HTMLInputElement | HTMLTextAreaElement
@@ -185,6 +207,35 @@ const suffixVisible = computed(() => [
 
 const showClear = computed(
   () => props.clearable && !!nativeInputValue.value && hovering.value
+)
+
+const showPwdVisible = computed(
+  () =>
+    props.showPassword &&
+    !props.readonly &&
+    !!nativeInputValue.value &&
+    !!nativeInputValue.value
+)
+
+const passwordVisible = ref(false)
+
+const handlePasswordVisible = () => {
+  passwordVisible.value = !passwordVisible.value
+}
+
+const passwordIcon = computed(() =>
+  passwordVisible.value ? IconView : IconHide
+)
+
+const textLength = computed(() => nativeInputValue.value.length)
+
+const isWordLimitVisible = computed(
+  () =>
+    props.showWordLimit &&
+    !!props.maxlength &&
+    (props.type === 'text' || props.type === 'textarea') &&
+    !props.readonly &&
+    !props.showPassword
 )
 
 const clear = () => {
