@@ -37,6 +37,8 @@
           @compositionupdate="handleCompositionUpdate"
           @compositionend="handleCompositionEnd"
           @input="handleInput"
+          @change="handleChange"
+          @keydown="handleKeydown"
         />
 
         <span v-if="suffixVisible" :class="nsInput.e('suffix')">
@@ -155,6 +157,14 @@ const handleInput = async (event: Event) => {
   setNativeInputValue()
 }
 
+const handleChange = (event: Event) => {
+  emit('change', (event.target as TargetElement).value)
+}
+
+const handleKeydown = (evt: KeyboardEvent) => {
+  emit('keydown', evt)
+}
+
 const hovering = ref(false)
 
 const handleMouseEnter = (evt: MouseEvent) => {
@@ -169,7 +179,9 @@ const handleMouseLeave = (evt: MouseEvent) => {
 
 const slots = useSlots()
 
-const suffixVisible = computed(() => [!!slots.suffix])
+const suffixVisible = computed(() => [
+  !!slots.suffix || !!props.prefixIcon || showClear.value,
+])
 
 const showClear = computed(
   () => props.clearable && !!nativeInputValue.value && hovering.value

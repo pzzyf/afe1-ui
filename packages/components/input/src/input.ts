@@ -33,6 +33,7 @@ export const inputEmit = {
   change: (value: string) => isString(value),
   mouseleave: (evt: MouseEvent) => evt instanceof MouseEvent,
   mouseenter: (evt: MouseEvent) => evt instanceof MouseEvent,
+  keydown: (evt: KeyboardEvent | Event) => evt instanceof Event,
   clear: () => true,
   compositionstart: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionupdate: (evt: CompositionEvent) => evt instanceof CompositionEvent,
