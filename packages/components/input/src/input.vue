@@ -10,8 +10,13 @@
         <slot name="prepend" />
       </div>
       <div :class="wrapperKls">
-        <span v-if="$slots.prefix" :class="nsInput.e('prefix')">
-          <slot name="prefix" />
+        <span v-if="$slots.prefix || prefixIcon" :class="nsInput.e('prefix')">
+          <span :class="nsInput.e('prefix-inner')">
+            <slot name="prefix" />
+            <a-icon v-if="prefixIcon" :class="nsInput.b('icon')">
+              <component :is="prefixIcon" />
+            </a-icon>
+          </span>
         </span>
 
         <input

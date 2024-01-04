@@ -24,6 +24,7 @@ export const inputProps = {
   tabindex: [String, Number] as PropType<string | number>,
   label: String,
   autofocus: Boolean,
+  prefixIcon: [String, Object, Function] as PropType<string | object>,
 } as const
 
 export const inputEmit = {
