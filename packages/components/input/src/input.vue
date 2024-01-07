@@ -25,6 +25,7 @@
           v-bind="attrs"
           :minlength="minlength"
           :maxlength="maxlength"
+          :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
           :disabled="disabled"
           :readonly="readonly"
           :autocomplete="autocomplete"
@@ -32,7 +33,6 @@
           :aria-label="label"
           :placeholder="placeholder"
           :autofocus="autofocus"
-          type="text"
           @compositionstart="handleCompositionStart"
           @compositionupdate="handleCompositionUpdate"
           @compositionend="handleCompositionEnd"
@@ -43,7 +43,9 @@
 
         <span v-if="suffixVisible" :class="nsInput.e('suffix')">
           <span :class="nsInput.e('suffix-inner')">
-            <template v-if="!showClear">
+            <template
+              v-if="!showClear || !showPwdVisible || !isWordLimitVisible"
+            >
               <slot name="suffix" />
               <a-icon v-if="suffixIcon" :class="nsInput.e('icon')">
                 <component :is="suffixIcon" />
@@ -72,17 +74,31 @@
           </span>
         </span>
       </div>
-      <div v-if="$slots.append">
+      <!-- append slot -->
+      <div v-if="$slots.append" :class="nsInput.be('group', 'append')">
         <slot name="append" />
       </div>
     </template>
     <template v-else>
       <textarea
         :class="nsTextarea.e('inner')"
-        :placeholder="placeholder"
+        v-bind="attrs"
         :disabled="disabled"
         :readonly="readonly"
+        :autocomplete="autocomplete"
+        :aria-label="label"
+        :placeholder="placeholder"
+        :autofocus="autofocus"
+        @compositionstart="handleCompositionStart"
+        @compositionupdate="handleCompositionUpdate"
+        @compositionend="handleCompositionEnd"
+        @input="handleInput"
+        @change="handleChange"
+        @keydown="handleKeydown"
       />
+      <span v-if="isWordLimitVisible" :class="nsInput.e('count')">
+        {{ textLength }} / {{ maxlength }}
+      </span>
     </template>
   </div>
 </template>
