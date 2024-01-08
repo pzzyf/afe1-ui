@@ -1,9 +1,9 @@
 <template>
-  <Base />
+  <a-switch>switch</a-switch>
 </template>
 
 <script setup lang="ts">
-import Base from '../../docs/examples/switch'
+import ASwitch from '@afe1-ui/components/switch'
 </script>
 
 <style scoped></style>
