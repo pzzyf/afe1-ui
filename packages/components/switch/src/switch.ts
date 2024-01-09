@@ -4,4 +4,7 @@ export const switchProps = {
   inactiveText: String,
   activeIcon: Object,
   activeText: String,
+  loading: Boolean,
+  activeActionIcon: Object,
+  inactiveActionIcon: Object,
 }
