@@ -7,9 +7,13 @@
       </a-icon>
       <span v-if="!inactiveIcon">{{ inactiveText }}</span>
     </span>
-    <span>
-      <div>active</div>
-      <div>notactive</div>
+    <span :class="ns.e('core')">
+      <div v-if="inlinePrompt" :class="ns.e('inner')">123</div>
+      <div :class="ns.e('action')">
+        <div>loading</div>
+        <div>checked</div>
+        <div>!checked</div>
+      </div>
     </span>
     <span v-if="!inlinePrompt && (activeIcon || activeText)">
       <a-icon v-if="activeIcon">
