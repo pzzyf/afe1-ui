@@ -1,14 +1,22 @@
 <template>
   <div :class="switchKls">
     <input :class="ns.e('input')" />
-    <span v-if="!inlinePrompt">
+    <span v-if="!inlinePrompt && (inactiveIcon || inactiveText)">
       <a-icon v-if="inactiveIcon">
         <component :is="inactiveIcon" />
       </a-icon>
       <span v-if="!inactiveIcon">{{ inactiveText }}</span>
     </span>
-    <span>main</span>
-    <span>suf</span>
+    <span>
+      <div>active</div>
+      <div>notactive</div>
+    </span>
+    <span v-if="!inlinePrompt && (activeIcon || activeText)">
+      <a-icon v-if="activeIcon">
+        <component :is="activeIcon" />
+      </a-icon>
+      <span v-if="!activeIcon">{{ activeText }}</span>
+    </span>
   </div>
 </template>
 
