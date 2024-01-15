@@ -1,6 +1,18 @@
 <template>
   <div :class="switchKls">
-    <input :class="ns.e('input')" />
+    <input
+      ref="input"
+      :class="ns.e('input')"
+      type="checkbox"
+      role="switch"
+      :aria-checked="checked"
+      :aria-label="label"
+      :name="name"
+      :true-value="activeValue"
+      :false-value="inactiveValue"
+      :tabindex="tabindex"
+      @change="handleChange"
+    />
     <span v-if="!inlinePrompt && (inactiveIcon || inactiveText)">
       <a-icon v-if="inactiveIcon">
         <component :is="inactiveIcon" />
@@ -46,15 +58,41 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import AIcon from '@afe1-ui/components/icon'
 import { useNamespace } from '@afe1-ui/hooks'
+import {
+  CHANGE_EVENT,
+  INPUT_EVENT,
+  UPDATE_MODEL_EVENT,
+} from '@afe1-ui/constants'
 import { Loading } from '@element-plus/icons-vue'
-import { switchProps } from './switch'
+
+import { switchEmits, switchProps } from './switch'
+const COMPONENT_NAME = 'ASwitch'
+defineOptions({
+  name: COMPONENT_NAME,
+})
 const ns = useNamespace('switch')
 const switchKls = computed(() => [ns.b()])
 const props = defineProps(switchProps)
-console.log(props)
+
+const emit = defineEmits(switchEmits)
+
+const isControlled = ref(props.modelValue !== false)
+
+const actualValue = computed(() => {
+  return isControlled.value ? props.modelValue : props.value
+})
+
+const checked = computed(() => actualValue.value === props.activeValue)
+
+const handleChange = () => {
+  const val = checked.value ? props.inactiveValue : props.activeValue
+  emit(UPDATE_MODEL_EVENT, val)
+  emit(CHANGE_EVENT, val)
+  emit(INPUT_EVENT, val)
+}
 </script>
 
 <style scoped></style>
