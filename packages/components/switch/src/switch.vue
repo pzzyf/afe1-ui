@@ -10,9 +10,9 @@
     <span :class="ns.e('core')">
       <div v-if="inlinePrompt" :class="ns.e('inner')">
         <template v-if="activeIcon || inactiveIcon">
-          <el-icon :class="ns.is('icon')">
+          <a-icon :class="ns.is('icon')">
             <component :is="true ? activeIcon : inactiveIcon" />
-          </el-icon>
+          </a-icon>
         </template>
         <template v-else-if="activeText || inactiveText">
           <span :class="ns.is('text')">
@@ -21,18 +21,18 @@
         </template>
       </div>
       <div :class="ns.e('action')">
-        <el-icon v-if="loading" :class="ns.is('loading')">
+        <a-icon v-if="loading" :class="ns.is('loading')">
           <loading />
-        </el-icon>
+        </a-icon>
         <slot v-else-if="true" name="active-action">
-          <el-icon v-if="activeActionIcon">
+          <a-icon v-if="activeActionIcon">
             <component :is="activeActionIcon" />
-          </el-icon>
+          </a-icon>
         </slot>
         <slot v-else-if="false" name="inactive-action">
-          <el-icon v-if="inactiveActionIcon">
+          <a-icon v-if="inactiveActionIcon">
             <component :is="inactiveActionIcon" />
-          </el-icon>
+          </a-icon>
         </slot>
       </div>
     </span>
