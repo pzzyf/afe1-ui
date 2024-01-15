@@ -74,7 +74,7 @@ defineOptions({
   name: COMPONENT_NAME,
 })
 const ns = useNamespace('switch')
-const switchKls = computed(() => [ns.b()])
+const switchKls = computed(() => [ns.b(), ns.is('checked', checked.value)])
 const props = defineProps(switchProps)
 
 const emit = defineEmits(switchEmits)
