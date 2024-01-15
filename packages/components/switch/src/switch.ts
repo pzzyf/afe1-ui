@@ -27,10 +27,10 @@ export const switchProps = {
 }
 
 export const switchEmits = {
-  [UPDATE_MODEL_EVENT]: (val: boolean | string | number) =>
+  [UPDATE_MODEL_EVENT]: (val: boolean | string | number | undefined) =>
     isBoolean(val) || isString(val) || isNumber(val),
-  [CHANGE_EVENT]: (val: boolean | string | number) =>
+  [CHANGE_EVENT]: (val: boolean | string | number | undefined) =>
     isBoolean(val) || isString(val) || isNumber(val),
-  [INPUT_EVENT]: (val: boolean | string | number) =>
+  [INPUT_EVENT]: (val: boolean | string | number | undefined) =>
     isBoolean(val) || isString(val) || isNumber(val),
 }
