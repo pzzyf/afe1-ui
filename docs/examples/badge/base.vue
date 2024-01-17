@@ -1,5 +1,5 @@
 <template>
-  <ABadge />
+  <ABadge :content="123">1</ABadge>
 </template>
 
 <script setup lang="ts">
