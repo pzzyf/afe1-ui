@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Base from '../../docs/examples/switch'
+import Base from '../../docs/examples/badge'
 </script>
 
 <style scoped></style>
