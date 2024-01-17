@@ -1,7 +1,7 @@
 <template>
   <div :class="ns.b()">
     <slot />
-    <sup v-text="content" />
+    <sup :class="[ns.e('content')]" v-text="content" />
   </div>
 </template>
 

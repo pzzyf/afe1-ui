@@ -3,8 +3,23 @@
 @use 'common/var' as *;
 
 @include b(badge){
+
+  @include set-component-css-var('badge',$badge);
   position: relative;
   vertical-align: middle;
   display: inline-block;
   width: fit-content;
+
+  @include e(content){
+    background-color: getCssVar('badge', 'bg-color');
+    border-radius: getCssVar('badge', 'radius');
+    color: getCssVar('color', 'white');
+
+    font-size: getCssVar('badge', 'font-size');
+    height: getCssVar('badge', 'size');
+    padding: 0 getCssVar('badge', 'padding');
+    white-space: nowrap;
+    border: 1px solid getCssVar('bg-color');
+  }
+
 }
