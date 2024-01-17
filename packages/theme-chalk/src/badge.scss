@@ -1,0 +1,10 @@
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use 'common/var' as *;
+
+@include b(badge){
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  width: fit-content;
+}
