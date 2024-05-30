@@ -14,6 +14,8 @@ export interface UploadFile {
 }
 
 export type UploadFiles = UploadFile[]
+export declare type UploadUserFile = Omit<UploadFile, 'status' | 'uid'> &
+  Partial<Pick<UploadFile, 'status' | 'uid'>>
 
 export interface UploadRawFile extends File {
   uid: number
