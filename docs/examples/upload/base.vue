@@ -1,6 +1,11 @@
 <template>
   <a-upload v-model:file-list="fileList">
-    <a-button>123</a-button>
+    <a-button type="primary">Click to upload</a-button>
+    <template #tip>
+      <div class="el-upload__tip">
+        jpg/png files with a size less than 500KB.
+      </div>
+    </template>
   </a-upload>
 </template>
 

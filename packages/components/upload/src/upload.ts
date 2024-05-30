@@ -1,4 +1,5 @@
 import { definePropType, mutable } from '@afe1-ui/utils'
+import type { ExtractPropTypes } from 'vue'
 
 export type UploadStatus = 'ready' | 'uploading' | 'success' | 'fail'
 
@@ -31,3 +32,5 @@ export const uploadBaseProps = {
 export const uploadProps = {
   ...uploadBaseProps,
 } as const
+
+export type UploadProps = ExtractPropTypes<typeof uploadProps>
