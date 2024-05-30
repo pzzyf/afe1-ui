@@ -23,7 +23,7 @@ export interface UploadRawFile extends File {
 
 export const uploadBaseProps = {
   fileList: {
-    type: definePropType(Array),
+    type: definePropType<UploadUserFile[]>(Array),
     default: () => mutable([] as const),
   },
 } as const
