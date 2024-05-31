@@ -1,6 +1,8 @@
 import { definePropType, mutable } from '@afe1-ui/utils'
 import type { ExtractPropTypes } from 'vue'
 
+export const uploadListTypes = ['text', 'picture', 'picture-card'] as const
+
 export type UploadStatus = 'ready' | 'uploading' | 'success' | 'fail'
 
 export interface UploadFile {
