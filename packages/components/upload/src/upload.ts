@@ -6,6 +6,9 @@ import type { ExtractPropTypes } from 'vue'
 
 export const uploadListTypes = ['text', 'picture', 'picture-card'] as const
 
+let fileId = 1
+export const genFileId = () => Date.now() + fileId++
+
 export type UploadStatus = 'ready' | 'uploading' | 'success' | 'fail'
 
 export interface UploadProgressEvent extends ProgressEvent {
