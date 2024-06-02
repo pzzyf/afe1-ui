@@ -1,5 +1,6 @@
 import { NOOP } from '@vue/shared'
 import { definePropType, mutable } from '@afe1-ui/utils'
+import { ajaxUpload } from './ajax'
 import type { Awaitable, Mutable } from '@afe1-ui/utils'
 import type { UploadAjaxError } from './ajax'
 import type { ExtractPropTypes } from 'vue'
@@ -47,6 +48,10 @@ export interface UploadRawFile extends File {
   uid: number
 }
 
+export type UploadRequestHandler = (
+  options: UploadRequestOptions
+) => XMLHttpRequest | Promise<unknown>
+
 export interface UploadHooks {
   beforeUpload: (
     rawFile: UploadRawFile
@@ -75,10 +80,6 @@ export interface UploadHooks {
   ) => void
   onExceed: (files: File[], uploadFiles: UploadUserFile[]) => void
 }
-
-export type UploadRequestHandler = (
-  options: UploadRequestOptions
-) => XMLHttpRequest | Promise<unknown>
 
 export type UploadData = Mutable<Record<string, any>>
 
@@ -139,6 +140,7 @@ export const uploadBaseProps = {
   },
   httpRequest: {
     type: definePropType<UploadRequestHandler>(Function),
+    default: ajaxUpload,
   },
   disabled: Boolean,
   limit: Number,

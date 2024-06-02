@@ -1,9 +1,16 @@
 <template>
-  <div :class="[ns.b]" @click="handleClick">
+  <div
+    :class="[ns.b(), ns.m(listType)]"
+    tabindex="0"
+    @click="handleClick"
+    @keydown.self.enter.space="handleKeydown"
+  >
     <slot />
     <input
       ref="inputRef"
       :class="ns.e('input')"
+      :name="name"
+      :multiple="multiple"
       type="file"
       @change="handleChange"
       @click.stop
@@ -13,8 +20,10 @@
 
 <script setup lang="ts">
 import { ref, shallowRef } from 'vue'
+import { isPlainObject } from '@vue/shared'
 import { useNamespace } from '@afe1-ui/hooks'
 import { isFunction } from '@afe1-ui/utils'
+import { cloneDeep, isEqual } from 'lodash-unified'
 import { uploadContentProps } from './upload-content'
 import { genFileId } from './upload'
 import type { UploadContentProps } from './upload-content'
@@ -59,6 +68,42 @@ const upload = async (rawFile: UploadRawFile): Promise<void> => {
 
   let hookResult: Exclude<ReturnType<UploadHooks['beforeUpload']>, Promise<any>>
   let beforeData: UploadContentProps['data'] = {}
+
+  try {
+    // origin data: Handle data changes after synchronization tasks are executed
+    const originData = props.data
+    const beforeUploadPromise = props.beforeUpload(rawFile)
+    beforeData = isPlainObject(props.data) ? cloneDeep(props.data) : props.data
+    hookResult = await beforeUploadPromise
+    if (isPlainObject(props.data) && isEqual(originData, beforeData)) {
+      beforeData = cloneDeep(props.data)
+    }
+  } catch {
+    hookResult = false
+  }
+
+  if (hookResult === false) {
+    props.onRemove(rawFile)
+    return
+  }
+
+  let file: File = rawFile
+  if (hookResult instanceof Blob) {
+    if (hookResult instanceof File) {
+      file = hookResult
+    } else {
+      file = new File([hookResult], rawFile.name, {
+        type: rawFile.type,
+      })
+    }
+  }
+
+  doUpload(
+    Object.assign(file, {
+      uid: rawFile.uid,
+    }),
+    beforeData
+  )
 }
 
 const resolveData = async (
@@ -129,11 +174,17 @@ const handleClick = () => {
   inputRef.value!.click()
 }
 
+const handleKeydown = () => {
+  handleClick()
+}
+
 const handleChange = (e: Event) => {
   const files = (e.target as HTMLInputElement).files
   if (!files) return
   uploadFiles(Array.from(files))
 }
-</script>
 
-<style scoped></style>
+defineExpose({
+  upload,
+})
+</script>
