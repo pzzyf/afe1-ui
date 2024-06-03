@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Base from '../../docs/examples/upload'
+import Base from '../../docs/examples/text'
 </script>
 
 <style scoped></style>
