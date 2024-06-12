@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use 'common/var' as *;
+
+@include b(text) {
+  @include set-component-css-var('text', $text);
+}
+
+@include b(text) {
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: getCssVar('text', 'font-size');
+  color: getCssVar('text', 'color');
+  overflow-wrap: break-word;
+}
