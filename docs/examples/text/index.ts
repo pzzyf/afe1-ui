@@ -1,3 +1,3 @@
-import Base from './truncated.vue'
+import Base from './override.vue'
 
 export default Base
