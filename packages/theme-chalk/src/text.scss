@@ -15,4 +15,10 @@
   font-size: getCssVar('text', 'font-size');
   color: getCssVar('text', 'color');
   overflow-wrap: break-word;
+
+  @each $type in $types {
+    &.#{bem('text','',$type)} {
+      @include css-var-from-global(('text', 'color'), ('color', $type));
+    }
+  }
 }
