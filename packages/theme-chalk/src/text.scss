@@ -16,6 +16,14 @@
   color: getCssVar('text', 'color');
   overflow-wrap: break-word;
 
+  @include when(truncated) {
+    display: inline-block;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
   @each $size in (large, default, small) {
     @include m($size) {
       @include set-css-var-value(

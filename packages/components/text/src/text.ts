@@ -26,4 +26,8 @@ export const textProps = {
     type: String as PropType<ComponentSize>,
     default: 'default',
   },
+  truncated: {
+    type: Boolean,
+    default: false,
+  },
 } as const

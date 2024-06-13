@@ -1,3 +1,3 @@
-import Base from './size.vue'
+import Base from './truncated.vue'
 
 export default Base
