@@ -30,4 +30,7 @@ export const textProps = {
     type: Boolean,
     default: false,
   },
+  lineClamp: {
+    type: [String, Number] as PropType<string | number>,
+  },
 } as const
