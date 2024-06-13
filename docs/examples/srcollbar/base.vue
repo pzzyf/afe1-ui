@@ -1,9 +1,9 @@
 <template>
-  <Base />
+  <a-scrollbar />
 </template>
 
 <script setup lang="ts">
-import Base from '../../docs/examples/srcollbar'
+import AScrollbar from '@afe1-ui/components/scrollbar'
 </script>
 
 <style scoped></style>
