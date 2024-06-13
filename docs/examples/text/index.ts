@@ -1,3 +1,3 @@
-import Base from './base.vue'
+import Base from './size.vue'
 
 export default Base

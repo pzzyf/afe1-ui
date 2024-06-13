@@ -1,4 +1,5 @@
 import type { PropType } from 'vue'
+import type { ComponentSize } from '@afe1-ui/constants/size'
 
 export const textTypes = [
   '',
@@ -20,5 +21,9 @@ export const textProps = {
   tag: {
     type: String,
     default: 'span',
+  },
+  size: {
+    type: String as PropType<ComponentSize>,
+    default: 'default',
   },
 } as const

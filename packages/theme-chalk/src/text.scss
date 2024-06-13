@@ -16,6 +16,15 @@
   color: getCssVar('text', 'color');
   overflow-wrap: break-word;
 
+  @each $size in (large, default, small) {
+    @include m($size) {
+      @include set-css-var-value(
+        ('text', 'font-size'),
+        map.get($text-font-size, $size)
+      );
+    }
+  }
+
   @each $type in $types {
     &.#{bem('text','',$type)} {
       @include css-var-from-global(('text', 'color'), ('color', $type));
