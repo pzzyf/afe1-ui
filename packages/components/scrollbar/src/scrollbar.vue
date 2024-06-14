@@ -19,6 +19,8 @@ defineOptions({
 
 const props = defineProps(scrollbarProps)
 
+console.log(props)
+
 const ns = useNamespace('scrollbar')
 
 const wrapKls = computed(() => {
