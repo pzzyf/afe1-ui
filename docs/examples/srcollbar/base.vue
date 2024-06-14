@@ -1,5 +1,7 @@
 <template>
-  <a-scrollbar />
+  <a-scrollbar>
+    <p v-for="item in 20" :key="item">{{ item }}</p>
+  </a-scrollbar>
 </template>
 
 <script setup lang="ts">
