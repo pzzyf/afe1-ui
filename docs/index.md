@@ -7,7 +7,7 @@ hero:
   text: vue3组件库
   tagline: 个人练手项目，可以使你更加了解monorepo结构和vue3语法
   image:
-    src: 'https://s2.loli.net/2024/06/14/e7xTXYO9lUNt8oF.jpg'
+    src: 'https://s2.loli.net/2024/06/14/dSQVMxu96tnWazL.png'
     alt: NutUi
 
   actions:
