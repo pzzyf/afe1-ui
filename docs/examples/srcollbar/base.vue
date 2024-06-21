@@ -1,5 +1,5 @@
 <template>
-  <a-scrollbar>
+  <a-scrollbar height="400px" max-height="100px">
     <p v-for="item in 20" :key="item">{{ item }}</p>
   </a-scrollbar>
 </template>

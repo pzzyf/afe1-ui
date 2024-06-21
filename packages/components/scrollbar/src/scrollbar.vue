@@ -12,6 +12,7 @@
 import { computed } from 'vue'
 import { useNamespace } from '@afe1-ui/hooks'
 import { scrollbarProps } from './scrollbar'
+import type { CSSProperties, StyleValue } from 'vue'
 
 defineOptions({
   name: 'AScrollbar',
@@ -19,16 +20,17 @@ defineOptions({
 
 const props = defineProps(scrollbarProps)
 
-console.log(props)
-
 const ns = useNamespace('scrollbar')
 
-const wrapKls = computed(() => {
-  return [ns.b('wrap')]
+const wrapStyle = computed<StyleValue>(() => {
+  const style: CSSProperties = {}
+  if (props.height) style.height = props.height
+  if (props.maxHeight) style.maxHeight = props.maxHeight
+  return [props.wrapStyle as any, style]
 })
 
-const wrapStyle = computed(() => {
-  return []
+const wrapKls = computed(() => {
+  return [props.wrapClass, ns.e('wrap')]
 })
 </script>
 
