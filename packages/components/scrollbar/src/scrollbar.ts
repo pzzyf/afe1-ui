@@ -20,5 +20,11 @@ export const scrollbarProps = {
   wrapClass: {
     type: [String, Array] as PropType<string | object>,
   },
+  viewClass: {
+    type: [String, Array] as PropType<string | object>,
+  },
+  viewStyle: {
+    type: [String, Array, Object] as PropType<string | object>,
+  },
   id: String,
 } as const

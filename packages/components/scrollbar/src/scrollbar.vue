@@ -1,7 +1,7 @@
 <template>
   <div :class="ns.b()">
     <div :class="wrapKls" :style="wrapStyle">
-      <component :is="tag" :id="id">
+      <component :is="tag" :id="id" :class="viewKls" :style="viewStyle">
         <slot />
       </component>
     </div>
@@ -31,6 +31,10 @@ const wrapStyle = computed<StyleValue>(() => {
 
 const wrapKls = computed(() => {
   return [props.wrapClass, ns.e('wrap')]
+})
+
+const viewKls = computed(() => {
+  return [props.viewClass, ns.e('view')]
 })
 </script>
 
